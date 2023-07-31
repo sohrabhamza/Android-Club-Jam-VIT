@@ -26,7 +26,7 @@ public class PlayerMovementChCtrl : MonoBehaviour
 
     //Private References 
     CharacterController controller;
-
+    [SerializeField] DynamicJoystick js;
     //Private
     float x, z;
     bool jumping;
@@ -43,7 +43,7 @@ public class PlayerMovementChCtrl : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         upForceNow = wallRunUpFoce;
     }
@@ -62,8 +62,10 @@ public class PlayerMovementChCtrl : MonoBehaviour
 
     void MyInput()
     {
-        x = Input.GetAxis("Horizontal");
-        z = Input.GetAxis("Vertical");
+        // x = Input.GetAxis("Horizontal");
+        // z = Input.GetAxis("Vertical");
+        x = js.Horizontal;
+        z = js.Vertical;
         jumping = Input.GetKey(KeyCode.Space);
     }
 
